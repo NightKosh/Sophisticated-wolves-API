@@ -1,5 +1,9 @@
 package sophisticated_wolves.api;
 
+import sophisticated_wolves.api.pet_carrier.IPetCarrierHandler;
+
+import javax.annotation.Nullable;
+
 /**
  * Sophisticated Wolves
  *
@@ -8,5 +12,9 @@ package sophisticated_wolves.api;
  */
 public class SophisticatedWolvesAPI {
 
+    @Nullable
     public static IEntityHandler entityHandler;
+
+    @Nullable
+    public static IPetCarrierHandler petCarrierHandler;
 }
