@@ -10,6 +10,6 @@ public class ModInfo {
 
     public static final String ID = "sophisticatedwolves";
     public static final String NAME = "SophisticatedWolves";
-    public static final String VERSION = "3.11.0";
-    public static final String API_VERSION = "1.2.0";
+    public static final String VERSION = "3.12.0";
+    public static final String API_VERSION = "1.3.0";
 }
