@@ -17,4 +17,7 @@ public class SophisticatedWolvesAPI {
 
     @Nullable
     public static IPetCarrierHandler petCarrierHandler;
+
+    @Nullable
+    public static IVillagerHandler villagerHandler;
 }
