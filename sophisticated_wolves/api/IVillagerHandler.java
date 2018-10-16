@@ -1,8 +1,6 @@
 package sophisticated_wolves.api;
 
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
@@ -23,8 +21,7 @@ public interface IVillagerHandler {
     public VillagerRegistry.VillagerCareer getPetSellerCareer();
 
     /**
-     * @return Localized name of the Pet seller villager
+     * @return unlocalized name of the Pet seller villager
      */
-    @SideOnly(Side.CLIENT)
     public String getPetsSellerName();
 }
