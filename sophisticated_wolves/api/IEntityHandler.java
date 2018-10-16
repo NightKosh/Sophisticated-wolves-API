@@ -3,7 +3,7 @@ package sophisticated_wolves.api;
 import net.minecraft.world.World;
 
 /**
- * GraveStone mod
+ * Sophisticated Wolves
  *
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
