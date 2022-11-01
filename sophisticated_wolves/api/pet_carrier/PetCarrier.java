@@ -1,11 +1,12 @@
 package sophisticated_wolves.api.pet_carrier;
 
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
 /**
@@ -18,62 +19,61 @@ public abstract class PetCarrier {
 
     public abstract Class getPetClass();
 
-    public abstract String getPetId();
+    public abstract String getPetNameLocalizationKey();
 
     /**
-     * This method should only spawn pet
-     * All additional pet information will be restored separately
-     * By copying pet NBT or in setAdditionalData method
+     * Provide animal EntityType
      */
-    public abstract EntityLiving spawnPet(World world, EntityPlayer player);
+    public abstract @Nonnull EntityType getEntityType();
 
     /**
      * Provide information for pet carrier tooltips
      */
-    public List<String> getInfo(NBTTagCompound infoNbt) {
+    public List<Component> getInfo(CompoundTag infoTag) {
         return null;
     }
 
     /**
      * Store pet's data in NBT for usage in tooltips
      */
-    public NBTTagCompound getInfo(EntityLivingBase pet) {
+    public CompoundTag getInfo(LivingEntity pet) {
         return null;
     }
 
-    public NBTTagCompound getAdditionalData(EntityLivingBase pet) {
+    public CompoundTag getAdditionalData(LivingEntity pet) {
         return null;
     }
 
     /**
      * Restore additional information about pet, at its spawn
-     * which can't be restored by readEntityFromNBT method
+     * which can't be restored by readAdditionalSaveData method
      */
-    public void setAdditionalData(EntityLiving pet, NBTTagCompound nbt) {
+    public void setAdditionalData(Entity pet, CompoundTag tag) {
 
     }
 
     /**
      * Return list of pet carriers for creative tab
      */
-    public abstract List<NBTTagCompound> getDefaultPetCarriers();
+    public abstract List<CompoundTag> getDefaultPetCarriers();
 
     /**
      * Create NBT tag for "default" pet carrier
      * use it in getDefaultPetCarriers method
      */
-    public final NBTTagCompound getDefaultPetCarrier(NBTTagCompound infoNbt, NBTTagCompound entityNbt) {
-        NBTTagCompound nbt = new NBTTagCompound();
-        nbt.setString("ClassName", getPetClass().getSimpleName());
+    public final CompoundTag getDefaultPetCarrier(CompoundTag infoTag, CompoundTag entityTag) {
+        var tag = new CompoundTag();
+        tag.putString("ClassName", getPetClass().getSimpleName());
 
-        if (infoNbt != null) {
-            nbt.setTag("InfoList", infoNbt);
+        if (infoTag != null) {
+            tag.put("InfoList", infoTag);
         }
 
-        if (entityNbt != null) {
-            nbt.setTag("MobData", entityNbt);
+        if (entityTag != null) {
+            tag.put("MobData", entityTag);
         }
 
-        return nbt;
+        return tag;
     }
+
 }

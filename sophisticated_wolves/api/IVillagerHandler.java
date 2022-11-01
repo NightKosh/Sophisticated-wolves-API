@@ -1,6 +1,5 @@
 package sophisticated_wolves.api;
 
-import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 import javax.annotation.Nullable;
 
@@ -10,18 +9,20 @@ import javax.annotation.Nullable;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
+//TODO does not works at the moment
 public interface IVillagerHandler {
 
     public static final String PETS_SELLER_ID = ModInfo.ID.toLowerCase() + ":pets_seller";
-
-    @Nullable
-    public VillagerRegistry.VillagerProfession getPetSellerProfession();
-
-    @Nullable
-    public VillagerRegistry.VillagerCareer getPetSellerCareer();
+    //TODO
+//    @Nullable
+//    VillagerRegistry.VillagerProfession getPetSellerProfession();
+//
+//    @Nullable
+//    VillagerRegistry.VillagerCareer getPetSellerCareer();
 
     /**
      * @return unlocalized name of the Pet seller villager
      */
-    public String getPetsSellerName();
+    String getPetsSellerName();
+
 }

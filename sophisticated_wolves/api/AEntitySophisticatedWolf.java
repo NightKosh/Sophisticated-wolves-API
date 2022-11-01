@@ -1,7 +1,8 @@
 package sophisticated_wolves.api;
 
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.level.Level;
 
 /**
  * Sophisticated Wolves
@@ -9,8 +10,10 @@ import net.minecraft.world.World;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class AEntitySophisticatedWolf extends EntityWolf implements ISophisticatedWolf {
-    public AEntitySophisticatedWolf(World world) {
-        super(world);
+public abstract class AEntitySophisticatedWolf extends Wolf implements ISophisticatedWolf {
+
+    public AEntitySophisticatedWolf(EntityType<? extends Wolf> entityType, Level level) {
+        super(entityType, level);
     }
+
 }

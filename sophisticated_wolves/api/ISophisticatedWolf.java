@@ -11,15 +11,16 @@ public interface ISophisticatedWolf {
     /*
      * determine species based on biome
      */
-    public EnumWolfSpecies getSpeciesByBiome();
+    EnumWolfSpecies getSpeciesByBiome();
 
     /*
      * reads data for species
      */
-    public EnumWolfSpecies getSpecies();
+    EnumWolfSpecies getSpecies();
 
     /*
      * modifies data for species
      */
-    public void updateSpecies(EnumWolfSpecies species);
+    void updateSpecies(EnumWolfSpecies species);
+
 }

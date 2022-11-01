@@ -18,6 +18,8 @@ public class SophisticatedWolvesAPI {
     @Nullable
     public static IPetCarrierHandler petCarrierHandler;
 
+    //TODO does not works at the moment
     @Nullable
     public static IVillagerHandler villagerHandler;
+
 }

@@ -1,6 +1,5 @@
 package sophisticated_wolves.api;
 
-import net.minecraft.util.text.translation.I18n;
 
 /**
  * Sophisticated Wolves
@@ -9,14 +8,14 @@ import net.minecraft.util.text.translation.I18n;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
 public enum EnumWolfSpecies {
-    VANILLA("wolf_type.vanilla"),
-    FOREST("wolf_type.forest"),
-    BLACK("wolf_type.black"),
-    BROWN("wolf_type.brown");
+    VANILLA("sophisticated_wolves.wolf_type.vanilla"),
+    FOREST("sophisticated_wolves.wolf_type.forest"),
+    BLACK("sophisticated_wolves.wolf_type.black"),
+    BROWN("sophisticated_wolves.wolf_type.brown");
 
-    private String speciesStr;
+    private final String speciesStr;
 
-    private EnumWolfSpecies(String speciesStr) {
+    EnumWolfSpecies(String speciesStr) {
         this.speciesStr = speciesStr;
     }
 
@@ -28,7 +27,8 @@ public enum EnumWolfSpecies {
         }
     }
 
-    public static String getSpeciesName(EnumWolfSpecies species) {
-        return I18n.translateToLocal(species.speciesStr);
+    public String getSpeciesStr() {
+        return this.speciesStr;
     }
+
 }
