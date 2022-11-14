@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class PetCarrier {
+public abstract class PetCarrier<T extends Entity> {
 
     public abstract Class getPetClass();
 
@@ -24,7 +24,8 @@ public abstract class PetCarrier {
     /**
      * Provide animal EntityType
      */
-    public abstract @Nonnull EntityType getEntityType();
+    public abstract @Nonnull
+    EntityType getEntityType();
 
     /**
      * Provide information for pet carrier tooltips
@@ -36,11 +37,11 @@ public abstract class PetCarrier {
     /**
      * Store pet's data in NBT for usage in tooltips
      */
-    public CompoundTag getInfo(LivingEntity pet) {
+    public CompoundTag getInfo(T pet) {
         return null;
     }
 
-    public CompoundTag getAdditionalData(LivingEntity pet) {
+    public CompoundTag getAdditionalData(T pet) {
         return null;
     }
 
@@ -48,17 +49,30 @@ public abstract class PetCarrier {
      * Restore additional information about pet, at its spawn
      * which can't be restored by readAdditionalSaveData method
      */
-    public void setAdditionalData(Entity pet, CompoundTag tag) {
+    public void setAdditionalData(T pet, CompoundTag tag) {
+
+    }
+
+    /**
+     * Do some logic at pet spawn.
+     * Used to do any mob specific logic
+     * and to restore data, which can't be restored by mob's compound tag.
+     * <p>
+     * Additionally used to set/change pet owner.
+     */
+    public void doAtSpawn(T pet, Player player) {
 
     }
 
     /**
      * Return list of pet carriers for creative tab
      */
-    public abstract List<CompoundTag> getDefaultPetCarriers();
+    public List<CompoundTag> getDefaultPetCarriers() {
+        return List.of(getDefaultPetCarrier(null, null));
+    }
 
     /**
-     * Create NBT tag for "default" pet carrier
+     * Create CompoundTag tag for "default" pet carrier
      * use it in getDefaultPetCarriers method
      */
     public final CompoundTag getDefaultPetCarrier(CompoundTag infoTag, CompoundTag entityTag) {

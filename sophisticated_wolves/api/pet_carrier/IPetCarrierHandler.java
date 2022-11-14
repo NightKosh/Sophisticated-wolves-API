@@ -8,6 +8,6 @@ package sophisticated_wolves.api.pet_carrier;
  */
 public interface IPetCarrierHandler {
 
-    void addPet(Class petClass, PetCarrier petCarrier);
+    void addPet(PetCarrier petCarrier);
 
 }
