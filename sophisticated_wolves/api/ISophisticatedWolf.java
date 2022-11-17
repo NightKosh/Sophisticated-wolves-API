@@ -1,5 +1,7 @@
 package sophisticated_wolves.api;
 
+import net.minecraft.world.level.Level;
+
 /**
  * Sophisticated Wolves
  *
@@ -11,7 +13,7 @@ public interface ISophisticatedWolf {
     /*
      * determine species based on biome
      */
-    EnumWolfSpecies getSpeciesByBiome();
+    EnumWolfSpecies getSpeciesByBiome(Level level);
 
     /*
      * reads data for species
