@@ -1,9 +1,5 @@
 package sophisticated_wolves.api;
 
-import sophisticated_wolves.api.pet_carrier.IPetCarrierHandler;
-
-import javax.annotation.Nullable;
-
 /**
  * Sophisticated Wolves
  *
@@ -12,14 +8,8 @@ import javax.annotation.Nullable;
  */
 public class SophisticatedWolvesAPI {
 
-    @Nullable
-    public static IEntityHandler entityHandler;
+    public static final String VILLAGER_ID = "zoologist";
 
-    @Nullable
-    public static IPetCarrierHandler petCarrierHandler;
-
-    //TODO does not works at the moment
-    @Nullable
-    public static IVillagerHandler villagerHandler;
+    public static final String SOPHISTICATED_WOLF_ID = "sophisticated_wolf";
 
 }

@@ -24,8 +24,7 @@ public abstract class PetCarrier<T extends Entity> {
     /**
      * Provide animal EntityType
      */
-    public abstract @Nonnull
-    EntityType getEntityType();
+    public abstract @Nonnull EntityType getEntityType();
 
     /**
      * Provide information for pet carrier tooltips
