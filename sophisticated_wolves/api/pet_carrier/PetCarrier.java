@@ -7,6 +7,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -17,18 +18,20 @@ import java.util.List;
  */
 public abstract class PetCarrier<T extends Entity> {
 
-    public abstract Class getPetClass();
+    public abstract Class<T> getPetClass();
 
     public abstract String getPetNameLocalizationKey();
 
     /**
      * Provide animal EntityType
      */
-    public abstract @Nonnull EntityType getEntityType();
+    @Nonnull
+    public abstract EntityType<T> getEntityType();
 
     /**
      * Provide information for pet carrier tooltips
      */
+    @Nullable
     public List<Component> getInfo(CompoundTag infoTag) {
         return null;
     }
@@ -36,10 +39,20 @@ public abstract class PetCarrier<T extends Entity> {
     /**
      * Store pet's data in NBT for usage in tooltips
      */
+    @Nullable
     public CompoundTag getInfo(T pet) {
         return null;
     }
 
+    public void readPetData(T pet, CompoundTag tag) {
+    }
+
+    @Nullable
+    public CompoundTag addPetData(T pet) {
+        return null;
+    }
+
+    @Nullable
     public CompoundTag getAdditionalData(T pet) {
         return null;
     }

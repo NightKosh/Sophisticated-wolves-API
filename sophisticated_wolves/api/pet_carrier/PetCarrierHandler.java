@@ -23,8 +23,8 @@ public class PetCarrierHandler {
         PETS_MAP.put(petCarrier.getPetClass().getSimpleName(), petCarrier);
     }
 
-    /* call those methods only when "sophisticated wolves" mod loaded */
-    /* otherwise PETS_MAP can be empty */
+    // call those methods only when "sophisticated wolves" mod loaded
+    // otherwise PETS_MAP can be empty
 
     public static Set<Map.Entry<String, PetCarrier<Entity>>> getPetCarriers() {
         return PETS_MAP.entrySet();
