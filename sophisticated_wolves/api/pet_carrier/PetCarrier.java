@@ -18,6 +18,10 @@ import java.util.List;
  */
 public abstract class PetCarrier<T extends Entity> {
 
+    public static final String CLASS_NAME = "ClassName";
+    public static final String INFO_LIST = "InfoList";
+    public static final String MOB_DATA = "MobData";
+
     public abstract Class<T> getPetClass();
 
     public abstract String getPetNameLocalizationKey();
@@ -89,14 +93,14 @@ public abstract class PetCarrier<T extends Entity> {
      */
     public final CompoundTag getDefaultPetCarrier(CompoundTag infoTag, CompoundTag entityTag) {
         var tag = new CompoundTag();
-        tag.putString("ClassName", getPetClass().getSimpleName());
+        tag.putString(CLASS_NAME, getPetClass().getSimpleName());
 
         if (infoTag != null) {
-            tag.put("InfoList", infoTag);
+            tag.put(INFO_LIST, infoTag);
         }
 
         if (entityTag != null) {
-            tag.put("MobData", entityTag);
+            tag.put(MOB_DATA, entityTag);
         }
 
         return tag;

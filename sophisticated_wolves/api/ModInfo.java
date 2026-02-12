@@ -9,6 +9,7 @@ package sophisticated_wolves.api;
 public class ModInfo {
 
     public static final String ID = "sophisticated_wolves";
-    public static final String API_VERSION = "3.0.0";
+
+    public static final String API_VERSION = "3.1.0";
 
 }
