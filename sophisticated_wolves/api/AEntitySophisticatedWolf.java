@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
  */
 public abstract class AEntitySophisticatedWolf extends Wolf {
 
-    public AEntitySophisticatedWolf(EntityType<? extends Wolf> entityType, Level level) {
+    public AEntitySophisticatedWolf(EntityType<? extends AEntitySophisticatedWolf> entityType, Level level) {
         super(entityType, level);
     }
 
